@@ -1,5 +1,6 @@
 const Product = ({ product, setProductsToDelete, productsToDelete }) => {
   const handleCheckbox = (e) => {
+    console.log(productsToDelete);
     const sku = e.target.dataset.sku;
     let toDelete = productsToDelete;
 

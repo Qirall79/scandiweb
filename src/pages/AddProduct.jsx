@@ -89,7 +89,7 @@ const AddProduct = ({ products, setProducts }) => {
     const price = document.querySelector("#price").value;
     const type = document.querySelector("#productType").value;
     const data = {
-      sku: parseInt(sku),
+      sku: sku,
       name,
       price: parseFloat(price),
       type,

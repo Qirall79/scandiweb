@@ -4,6 +4,7 @@ import deleteProducts from "../utils/deleteProducts";
 const ListNavbar = ({ productsToDelete, setFetched, setProducts }) => {
   const handleDelete = async (e) => {
     e.preventDefault();
+    console.log(productsToDelete);
     if (!productsToDelete.length) return;
     deleteProducts(productsToDelete).then(() => {
       window.location.reload();
