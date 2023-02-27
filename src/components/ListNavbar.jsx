@@ -4,8 +4,13 @@ import deleteProducts from "../utils/deleteProducts";
 const ListNavbar = ({ productsToDelete, setFetched, setProducts }) => {
   const handleDelete = async (e) => {
     e.preventDefault();
-    console.log(productsToDelete);
     if (!productsToDelete.length) return;
+    const boxes = document.querySelectorAll(".delete-checkbox");
+
+    boxes.forEach((box) => {
+      box.style.visibility = "none";
+    });
+
     deleteProducts(productsToDelete).then(() => {
       window.location.reload();
     });
