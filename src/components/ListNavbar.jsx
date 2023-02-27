@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import deleteProducts from "../utils/deleteProducts";
 
 const ListNavbar = ({ productsToDelete, setFetched, setProducts }) => {
