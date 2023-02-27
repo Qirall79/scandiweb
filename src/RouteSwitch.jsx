@@ -5,7 +5,7 @@ import AddProduct from "./pages/AddProduct";
 const RouteSwitch = ({ products, setProducts }) => {
   return (
     <div>
-      <BrowserRouter basename="/scandiweb">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home products={products} />} />
           <Route
