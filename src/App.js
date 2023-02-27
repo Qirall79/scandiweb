@@ -3,6 +3,7 @@ import fetchProducts from "./utils/fetchProducts";
 import RouteSwitch from "./RouteSwitch";
 // eslint-disable-next-line no-unused-vars
 import styles from "./index.css";
+import ListNavbar from "./components/ListNavbar";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -20,6 +21,7 @@ function App() {
   if (!fetched) {
     return (
       <div className="px-20 py-10 bg-slate-400 min-h-screen overflow-x-hidden">
+        <ListNavbar />
         Please Wait...
       </div>
     );
