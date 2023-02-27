@@ -7,7 +7,10 @@ const RouteSwitch = ({ products, setProducts }) => {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home products={products} />} />
+          <Route
+            path="/"
+            element={<Home products={products} setProducts={setProducts} />}
+          />
           <Route
             path="/addproduct"
             element={

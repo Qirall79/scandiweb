@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom";
 import deleteProducts from "../utils/deleteProducts";
 
-const ListNavbar = ({ productsToDelete, setFetched, setProducts }) => {
+const ListNavbar = ({ productsToDelete, setProducts, products }) => {
   const handleDelete = async (e) => {
     e.preventDefault();
     if (!productsToDelete.length) return;
-    const boxes = document.querySelectorAll(".delete-checkbox");
-
-    boxes.forEach((box) => {
-      box.style.visibility = "none";
-    });
 
     deleteProducts(productsToDelete).then(() => {
-      window.location.reload();
+      const updatedProducts = products.filter(
+        (p) => !productsToDelete.includes(p.sku.toLowerCase())
+      );
+      setProducts([...updatedProducts]);
     });
   };
 
