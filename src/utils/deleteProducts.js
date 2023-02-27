@@ -1,7 +1,7 @@
 const deleteProducts = async (productsToDelete) => {
   console.log(productsToDelete);
   try {
-    if (!productsToDelete.length) return;
+    
 
     const apiUrl = "https://scandiweb-walid.000webhostapp.com/delete";
     await productsToDelete.forEach(async (sku) => {
