@@ -33,12 +33,12 @@ const AddProduct = ({ products, setProducts }) => {
     sizeError.innerText = "";
 
     // validate sku
-    if (data.sku <= 0) {
+    if (!data.sku.length) {
       skuError.innerText = "Invalid SKU, please provide a positive integer.";
       isValid = false;
     }
     const filtered = products.filter(
-      (product) => parseInt(product.sku) === parseInt(data.sku)
+      (product) => product.sku.toLowerCase() === data.sku.toLowerCase()
     );
 
     if (filtered.length) {
@@ -82,7 +82,8 @@ const AddProduct = ({ products, setProducts }) => {
     return isValid;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const sku = document.querySelector("#sku").value;
     const name = document.querySelector("#name").value;
     const price = document.querySelector("#price").value;
