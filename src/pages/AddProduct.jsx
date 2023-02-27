@@ -151,9 +151,7 @@ const AddProduct = ({ products, setProducts }) => {
               <label htmlFor="sku">SKU</label>
               <input
                 className="w-[80%] h-8 outline-none px-2"
-                type="number"
-                min="0"
-                step={1}
+                type="text"
                 name="sku"
                 id="sku"
               />
