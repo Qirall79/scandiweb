@@ -6,7 +6,6 @@ const addProduct = async (data) => {
       method: "POST",
       body: JSON.stringify(data),
     });
-    console.log("done");
   } catch (err) {
     console.log(err);
   }

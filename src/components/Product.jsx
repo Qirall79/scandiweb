@@ -1,4 +1,5 @@
 const Product = ({ product, setProductsToDelete, productsToDelete }) => {
+  // Add checked product to products to delete
   const handleCheckbox = (e) => {
     const sku = e.target.dataset.sku;
     let toDelete = productsToDelete;
@@ -12,7 +13,6 @@ const Product = ({ product, setProductsToDelete, productsToDelete }) => {
       toDelete = toDelete.filter((s) => s !== sku);
       setProductsToDelete([...toDelete]);
     }
-
     return;
   };
 

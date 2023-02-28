@@ -7,6 +7,7 @@ const AddProduct = ({ products, setProducts }) => {
   const [productType, setProductType] = useState("book");
   const [added, setAdded] = useState(false);
 
+  // Update UI based on product type
   const handleTypeChange = (e) => {
     const type = e.target.value;
 
@@ -88,6 +89,8 @@ const AddProduct = ({ products, setProducts }) => {
     const name = document.querySelector("#name").value;
     const price = document.querySelector("#price").value;
     const type = document.querySelector("#productType").value;
+
+    // Add necessary data
     const data = {
       sku: sku,
       name,
@@ -95,6 +98,7 @@ const AddProduct = ({ products, setProducts }) => {
       type,
     };
 
+    // Add attributes based on type
     if (type === "book") {
       const weight = document.querySelector("#weight").value;
       data.weight = weight;
@@ -117,11 +121,14 @@ const AddProduct = ({ products, setProducts }) => {
     if (!validationResult) {
       return;
     }
+
+    // Add product and re-fetch data to update UI
     await addProduct(data);
     await fetchProducts(setProducts, setAdded);
     return;
   };
 
+  // Redirect to home after product is added
   if (added) {
     return <Navigate to={"/"} />;
   }

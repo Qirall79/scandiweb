@@ -4,8 +4,11 @@ import deleteProducts from "../utils/deleteProducts";
 const ListNavbar = ({ productsToDelete, setProducts, products }) => {
   const handleDelete = async (e) => {
     e.preventDefault();
+
+    // Do nothing if there are no products to delete
     if (!productsToDelete.length) return;
 
+    // Delete products and update the products state
     deleteProducts(productsToDelete).then(() => {
       const updatedProducts = products.filter(
         (p) => !productsToDelete.includes(p.sku.toLowerCase())
