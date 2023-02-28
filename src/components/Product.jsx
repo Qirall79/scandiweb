@@ -1,10 +1,15 @@
+import { useState } from "react";
+
 const Product = ({ product, setProductsToDelete, productsToDelete }) => {
+  const [checked, setChecked] = useState(false);
+
   // Add checked product to products to delete
   const handleCheckbox = (e) => {
-    const sku = e.target.dataset.sku;
+    const isChecked = Boolean(e.target.checked);
+    const sku = e.target.dataset.sku.toLowerCase();
     let toDelete = productsToDelete;
 
-    if (e.target.checked) {
+    if (isChecked) {
       if (productsToDelete.includes(sku)) return;
 
       setProductsToDelete([...productsToDelete, sku]);
@@ -13,6 +18,7 @@ const Product = ({ product, setProductsToDelete, productsToDelete }) => {
       toDelete = toDelete.filter((s) => s !== sku);
       setProductsToDelete([...toDelete]);
     }
+    setChecked(!checked);
     return;
   };
 
@@ -33,6 +39,7 @@ const Product = ({ product, setProductsToDelete, productsToDelete }) => {
       )}
       <input
         type="checkbox"
+        checked={checked}
         data-sku={product.sku}
         className="delete-checkbox"
         onChange={handleCheckbox}
