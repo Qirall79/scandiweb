@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <div className="px-20 py-10 bg-slate-400 min-h-screen overflow-x-hidden">
+    <div className="px-20 py-10 bg-slate-400 min-h-screen h-full overflow-x-hidden">
       <RouteSwitch products={products} setProducts={setProducts} />
     </div>
   );

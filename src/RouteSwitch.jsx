@@ -4,7 +4,7 @@ import AddProduct from "./pages/AddProduct";
 
 const RouteSwitch = ({ products, setProducts }) => {
   return (
-    <div>
+    <div className="min-h-[90vh] h-full w-full">
       <BrowserRouter>
         <Routes>
           <Route
