@@ -36,7 +36,7 @@ const AddProduct = ({ products, setProducts }) => {
 
     // validate sku
     if (!data.sku.length) {
-      skuError.innerText = "Invalid SKU, please provide a positive integer.";
+      skuError.innerText = "Invalid SKU, please provide a value.";
       isValid = false;
     }
     const filtered = products.filter(
@@ -53,9 +53,11 @@ const AddProduct = ({ products, setProducts }) => {
       nameError.innerText = "Please provide a name.";
       isValid = false;
     }
+    //pattern to test if a string contains only digits
+    let isNum = /^\d+$/.test(data.price);
 
     // validate price
-    if (data.price <= 0) {
+    if (!isNum || data.price <= 0) {
       priceError.innerText = "Please provide a valid price.";
       isValid = false;
     }
